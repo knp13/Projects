@@ -1,0 +1,17 @@
+.nav-custom{
+  background-color: #cc0099;
+}
+.content{
+  padding-top: 20px;
+}
+li,a {
+  padding-right: 40px;
+}
+
+.content-section {
+  background: #ffffff;
+  padding: 10px 30px;
+  border: 1px solid #b3e0ff;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
