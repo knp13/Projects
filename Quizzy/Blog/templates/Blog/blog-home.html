@@ -1,0 +1,18 @@
+{% extends 'Blog/base-template.html' %}
+{% load static %}
+{% block title %}{% endblock %}
+{% block content %}
+      {% for post in posts %}
+        <article class="media" style="border-bottom: 1px solid #b3e0ff; padding: 10px 0px 10px 0px;">
+          <img class="rounded-circle" style="height:100px; width:100px; float:left;" src="{{ post.author.profile.image.url }}">
+          <div class="media-body" style="padding-left:20px; margin-left:100px;">
+            <div class="article-metadata">
+              <i class="mr-2">By {{ post.author }}</i>
+              <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
+            </div>
+            <h5><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h5>
+            <p class="article-content">{{ post.content }}</p>
+          </div>
+        </article>
+      {% endfor %}
+{% endblock %}
