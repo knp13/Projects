@@ -1,0 +1,150 @@
+.navbar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #001a4d;
+}
+.active{
+  margin-left: 10px;
+}
+.textinputclass{
+  width:600px;
+}
+.active:hover{
+  color: #b3c6ff;
+}
+.account-img{
+  height: 150px;
+  width: 150px;
+}
+.content-section {
+  background: #ffffff;
+  position: absolute;
+  padding: 10px 50px 0px 50px;
+  margin-left: 20px;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+li {
+  float: left;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2rem;
+  margin-right: 50px;
+}
+
+li:last-child {
+  border-right: none;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 24px 16px;
+  text-decoration: none;
+  background-color: #001a4d;
+}
+
+li a:hover:not(.active) {
+  color: #fff;
+  background-color: #111;
+}
+
+.active {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.quediv{
+  padding-top: 10px;
+  padding-left: 30px;
+  padding-right: 20px;
+}
+.topdiv{
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 20px;
+  text-align: center;
+}
+
+.category{
+  padding-left: 50px;
+  padding-right: 30px;
+  margin-top: 30px;
+  width: 240px;
+}
+.content{
+  padding: 50px 50px 50px 50px;
+}
+.intro{
+  font-size: 1.5rem;
+}
+.resultdiv{
+  padding-top: 40px;
+  text-align:center;
+}
+.form_page{
+  padding: 20px 50px 50px 50px;
+}
+.queform{
+  padding-top: 70px;
+}
+.btn-outline {
+  color: #001a4d;
+  background-color: #ffffff;
+  border-color: #001a4d;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  border-radius: 3px;
+}
+.btn-outline:hover,
+.btn-outline:active,
+.btn-outline:focus,
+.btn-outline.active {
+  background: #001a4d;
+  color: #ffffff;
+  border-color: #001a4d;
+}
+.btn-colour-1 {
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  border-radius: 3px;
+}
+.loginpage{
+  background:#ffffff;
+  height:500px;
+  width:500px;
+  padding-top:50px;
+  margin-right:70px;
+  margin-top:10px;
+  float:right;
+  border-radius: 10px;
+}
+.nav-custom{
+  background-color: #cc0099;
+}
+.content{
+  padding-top: 20px;
+}
+li,a {
+  padding-right: 40px;
+}
+
+.content-section {
+  background: #ffffff;
+  padding: 0px 30px;
+  border-bottom: 2px solid #b3e0ff;
+  border-radius: 3px;
+  margin-bottom: 50px;
+}
+
+#newitem{
+  border-right:1px solid #bbb;
+  background-color: #000099;
+  border-radius:50px;
+  border:2px solid white;
+  border: 1px solid black;
+  col-lg-4
+  col-lg-8
+}
