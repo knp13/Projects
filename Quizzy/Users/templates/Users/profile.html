@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}Profile - {% endblock %}
+{% block content %}
+    <div class="content-section pt-2">
+        <div style="float:left;">
+          <img class="rounded-circle account-img" src="{{ user.profile.image.url }}" alt="not found">
+        </div>
+        <div style="float:right;padding-left: 100px;">
+          <h2 class="account-heading">{{user.username}}</h2>
+          <p class="text-secondary">{{user.email}}</p>
+          {% if request.user.is_staff %}
+            <a href="{% url 'add_question'%}" class="btn btn-danger" style="float:right; margin-right:20px;">Add New Question</a>
+            <a href="{% url 'question_list'%}" class="btn btn-danger" style="float:right; margin-right:20px;">See All Questions</a>
+          {% endif %}
+          <a href="{% url 'tests_given' user.id %}" class="btn btn-danger" style="float:right; margin-right:20px;">See All Tests</a>
+        </div>
+    </div><br>
+    <form style="padding-top:160px;" method="POST" class="form_page" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ user_form|crispy }}<br>
+      {{ profile_form|crispy }}<br>
+      <input type="submit"  class="btn btn-primary" value="Update">
+    </form>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'Users/base.html' %}
+{% load crispy_forms_tags %}
+{% block login %}
+<div class="loginpage" style="height:550px;">
+      <p style="font-size:1.5rem; padding:0px 0px 0px 50px;">Join Here and Start Practicing !</p>
+      <form method="POST" class="form_page">
+        {% csrf_token %}
+        {{ form.username }}<br>
+        {{ form.email }}<br>
+        {{ form.password1 }}<br>
+        {{ form.password2 }}<br>
+        <input type="submit" style="margin-right:40px;" class="btn btn-primary" value="Sign up">
+        Already Have an Account ? <a href="{% url 'login' %}">Login</a>
+      </form>
+      {% if messages %}
+          {% for message in messages %}
+          <div class="alert alert-{{message.tags}}" style="width:300px; margin-left:90px; text-align:center;">
+            {{ message }}
+          </div>
+          {% endfor %}
+      {% endif %}
+</div>
+{% endblock %}
