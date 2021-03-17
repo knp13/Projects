@@ -1,0 +1,15 @@
+
+{% extends 'index.html' %}
+{% load static %}
+{% block title %}Questions - {% endblock %}
+{% block content %}
+<div>
+  <ul>
+    <li><a class="active" href="{% url 'home' %}">Quizzy</a></li>
+    <li><a href="{% url 'topic_list' %}">Tests</a></li>
+    <li><a href="#">About</a></li>
+    <li style="float:right"><a href="#">Contact</a></li>
+    <li style="float:right;"><a href="#">Join For Free</a></li>
+  </ul>
+</div>
+{% endblock %}

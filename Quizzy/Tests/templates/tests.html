@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Questions - {% endblock %}
+{% block content %}
+    <div style="padding:40px 40px 40px 40px;">
+      <table class="table table-striped">
+        <th>Name</th>
+        <th>User</th>
+        <th>Topic</th>
+        <th>Status</th>
+        <th>Score</th>
+        <th>Result</th>
+
+        {% for t in tgiven %}
+        <tr>
+          <td>
+              {% if t.name %}
+                <h6>{{ t.name }}</h6>
+              {% else %}
+                <h6>{{ t.topic.name }} - {{ t.id }}</h6>
+              {% endif %}
+          </td>
+          <td>
+              <h6>{{t.user}}</h6>
+          </td>
+          <td>
+              <h6>{{t.topic}}</h6>
+          </td>
+          <td>
+              <h6>{% if t.completed %}Complete{% else %}Pending{% endif %}</h6>
+          </td>
+          <td>
+              <h6>{{t.score}}</h6>
+          </td>
+          <td>
+              <h6>{{t.id}}</h6>
+          </td>
+        </tr>
+        {% endfor %}
+        <!-- {% if request.user == user %}
+        {% endif %} -->
+      </table>
+    </div>
+{% endblock %}

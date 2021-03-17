@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Questions - {% endblock %}
+{% block style %}
+label{
+  margin-right: 20px;
+}
+
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+/* Button used to open the contact form - fixed at the bottom of the page */
+.open-button {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  top: 80px;
+  right: 28px;
+  width: 280px;
+}
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: fixed;
+  top: 70px;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  border-radius: 25px;
+  width: 300px;
+  z-index: 9;
+  background-color:yellow;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+}
+
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 100;
+}
+.optiondiv{
+  background-color:#e6e6e6;
+  padding: 5px 5px 5px 5px;
+  font-size:1rem;
+  width:400px;
+  float:left;
+  border: 1px solid #999999;
+  border-radius: 10px;
+}
+{% endblock %}
+{% block content %}
+    <div class="quediv">
+          <h3 style="float:left;">{{topicname}} questions. Total {{qcount}}
+                                       {% if qcount <= 1 %} question
+                                       {% else %}questions
+                                       {% endif %} </h3>
+      <form class="queform" method="POST">
+        {% csrf_token %}
+      <table class="table table-striped">
+          {% for q in que %}
+          <tr>
+              <td style="border-radius: 5px 20px; background-color:#d6f5f5;">
+                {{forloop.counter}}. {{q.text}}<br>
+                  <div class="optiondiv" style="float:left;" id="1">
+                    <input type="radio" name="question{{forloop.counter}}" value="{{q.option1}}" onclick="openForm()">
+                    <label>{{q.option1}}</label>
+                  </div>
+                  <div class="optiondiv" style="float:right; margin-right:130px;"  id="2">
+                    <input type="radio" name="question{{forloop.counter}}" value="{{q.option2}}" onclick="openForm()">
+                    <label>{{q.option2}}</label>
+                  </div><br><br>
+                  <div class="optiondiv" style="float:left;"  id="3">
+                    <input type="radio" name="question{{forloop.counter}}" value="{{q.option3}}" onclick="openForm()">
+                    <label>{{q.option3}}</label>
+                  </div>
+                  <div class="optiondiv" style="float:right; margin-right:130px;"  id="4">
+                    <input type="radio" name="question{{forloop.counter}}" value="{{q.option4}}" onclick="openForm()">
+                    <label>{{q.option4}}</label>
+                  </div><br><br>
+              </td>
+          </tr>
+          {% endfor %}
+      </table>
+      <button class="btn btn-danger">Submit</button>
+      </form>
+    </div>
+
+{% endblock %}

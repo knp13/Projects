@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}Questions - {% endblock %}
+{% block style %}
+body{
+  background-image: url({% static 'images/zcasestudy.png' %});
+  background-repeat: no-repeat;
+}
+.questiondiv{
+  background-color: #b3d9ff;
+  position: absolute;
+  border: 1px solid black;
+  border-radius:5px;
+  padding:40px 50px 40px 50px;
+  marging-left:100px;
+  margin-top: 30px;
+}
+{% endblock %}
+{% block content %}
+    <div class="questiondiv">
+      <form class="" method="post">
+        {% csrf_token %}
+        <label for="" style="float:left; padding-right:75px;">Text: </label>{{form.text}}
+        <label for="" style="float:left; padding-right:40px;">Option 1: </label>{{form.option1}}
+        <label for="" style="float:left; padding-right:40px;">Option 2: </label>{{form.option2}}
+        <label for="" style="float:left; padding-right:40px;">Option 3: </label>{{form.option3}}
+        <label for="" style="float:left; padding-right:40px;">Option 4: </label>{{form.option4}}
+        <label for="" style="float:left; padding-right:51px;">Answer: </label>{{form.answer}}
+        <label for="" style="float:left; padding-right:60px;">Marks: </label>{{form.marks}}<br>
+        <label for="" style="float:left; padding-right:65px;">Topic: </label>{{form.topic}}<br><br>
+        <input type="submit" class="btn btn-outline-dark" value="Submit">
+      </form>
+      <a href="{% url 'add_question' %}"  class="btn btn-outline-dark" style="float:right;">Add Another Question</a>
+    </div>
+{% endblock %}
